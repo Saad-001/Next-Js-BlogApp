@@ -26,7 +26,7 @@ export default function AllBlogs ({blogs} : any ) {
                 blogs.map((blog : blogType)  => (
                     <Link href={`/blog/${blog.id}`} key={blog.id }>
                         <a>
-                            <h4 className="blog">{blog.title.toUpperCase()}</h4>
+                            <h4 className="blog">{blog.title.charAt(0).toUpperCase() + blog.title.slice(1)}</h4>
                         </a>
                     </Link>
                 ))
@@ -39,11 +39,15 @@ export default function AllBlogs ({blogs} : any ) {
                     .heading{
                         display: flex;
                         justify-content: center;
+                        background: lightgray;
                         margin: 20px 0px;
+                        border-Radius : 5px;
+                        padding: 10px 20px;
+                        box-Shadow: 2px 2px 2px #9b26b0;
                     }
                     .blog{
                         color: white;
-                        padding: 11px 20px;
+                        padding: 10px;
                         background: #9b26b5;
                         margin: 10px 0px;
                         border-Radius : 5px;

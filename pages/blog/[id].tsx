@@ -47,8 +47,8 @@ export default function singleBlog ({data} : any) {
 
     return(
         <div className="container">
-            <h3 className="title">Title: {data.title.toUpperCase()}</h3>
-            <h4 className="body">Description: {data.body.toUpperCase()}</h4>
+            <h3 className="title">Title: {data.title.charAt(0).toUpperCase() + data.title.slice(1)}</h3>
+            <h4 className="body">Description: {data.body.charAt(0).toUpperCase() + data.body.slice(1)}</h4>
             <style jsx>{
                 `
                 .container{
@@ -61,6 +61,7 @@ export default function singleBlog ({data} : any) {
                 .body{
                     background: #9b26b5;
                     padding: 15px 30px;
+                    color: white;
                 }
                 `
             }
