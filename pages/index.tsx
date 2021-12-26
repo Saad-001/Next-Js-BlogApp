@@ -1,9 +1,10 @@
 import Link from "next/link";
 import axios from "axios";
+import { GetStaticProps } from "next";
 
-export const getStaticProps = async ()  => {
+export const getStaticProps : GetStaticProps = async ()  => {
     const result = await axios.get("https://jsonplaceholder.typicode.com/posts");
-    const data : object[] = await result.data;
+    const data : blogType[] = await result.data;
 
     return{
         props : {blogs : data.slice(0, 10)}
@@ -17,7 +18,12 @@ interface blogType {
     body : string
 }
 
-export default function AllBlogs ({blogs} : any ) {
+interface AllBlogsProps {
+    blogs: blogType[]
+}
+
+ const AllBlogs = ({blogs}: AllBlogsProps) => {
+
     console.log(blogs)
     return (
             <div className="blogContainer">
@@ -58,3 +64,6 @@ export default function AllBlogs ({blogs} : any ) {
             
     )
 }
+
+export default AllBlogs;
+
